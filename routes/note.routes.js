@@ -11,8 +11,10 @@ noteRouter.use(authenticator)
 
 
 
-noteRouter.get("/", (req, res) => {
+noteRouter.get("/", async (req, res) => {
+    const notedata =await noteModel.find()
     res.send({
+        note:notedata,
         message: "all the notes",
         status: 1
     })
